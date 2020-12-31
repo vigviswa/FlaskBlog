@@ -6,12 +6,6 @@ from flaskblog.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-#
-# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = "False"
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
-# app.config[
-#     "SQLALCHEMY_DATABASE_URI"
-# ] = "mysql://admin:gundusaarav@flask-mysql.csw0rdijz2bq.us-east-1.rds.amazonaws.com/flask"
 
 db = SQLAlchemy(app)
 brcypt = Bcrypt(app)
