@@ -1,0 +1,30 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
+from flaskblog.config import Config
+
+app = Flask(__name__)
+app.config.from_object(Config)
+#
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = "False"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
+# app.config[
+#     "SQLALCHEMY_DATABASE_URI"
+# ] = "mysql://admin:gundusaarav@flask-mysql.csw0rdijz2bq.us-east-1.rds.amazonaws.com/flask"
+
+db = SQLAlchemy(app)
+brcypt = Bcrypt(app)
+login_manager = LoginManager(app)
+login_manager.login_view = "users.login_page"
+login_manager.login_message_category = "info"
+
+from flaskblog.users.routes import users
+from flaskblog.posts.routes import posts
+from flaskblog.main.routes import main
+from flaskblog.errors.handlers import errors
+
+app.register_blueprint(users)
+app.register_blueprint(posts)
+app.register_blueprint(main)
+app.register_blueprint(errors)
