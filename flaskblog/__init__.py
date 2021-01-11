@@ -7,6 +7,19 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.config.from_object(Config)
+#
+# tunnel = sshtunnel.SSHTunnelForwarder(
+#     ("129.146.245.35", 22),
+#     ssh_username="ubuntu",
+#     ssh_private_key="~/FlaskBlog/keyfiles/key.key",
+#     remote_bind_address=("flaskdb.subnet01072122.vcn01072122.oraclevcn.com", 3306),
+# )
+
+# tunnel.start()
+#
+# app.config[
+#     "SQLALCHEMY_DATABASE_URI"
+# ] = "mysql://admin:Gundusaarav@1234@127.0.0.1:{}/flask".format(tunnel.local_bind_port)
 
 db = SQLAlchemy(app)
 brcypt = Bcrypt(app)
