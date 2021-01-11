@@ -5,9 +5,21 @@ from flaskblog import app
 from flask_mail import Message
 from flaskblog import mail
 from flask import url_for, current_app
+import oci
+
+config = {
+    "user": "ocid1.user.oc1..aaaaaaaaxkpb5pjfaf4432pd4fb7vsjzbprdghzyfxog56w6xg4lcio6qhga",
+    "fingerprint": "63:bf:5a:b6:34:e1:f7:c3:41:d1:f4:a8:0c:b8:73:a4",
+    "tenancy": "ocid1.tenancy.oc1..aaaaaaaary5pyagidupdq63x5fyeo4oenxt7tvtjtrpp6sljbmxslz56liza",
+    "region": "us-phoenix-1",
+    "key_file": "~/FlaskBlog/keyfiles/vigviswa.pem",
+}
 
 
 def save_picture(form_picture):
+    obj = oci.object_storage.ObjectStorageClient(config)
+    namespace = obj.get_namespace().data
+    bucket_name = "flask-demo-bucket"
     _, f_ext = os.path.splitext(form_picture.filename)
     random_hex = secrets.token_hex(8)
     picture_fn = random_hex + f_ext
@@ -16,6 +28,9 @@ def save_picture(form_picture):
     i = Image.open(form_picture)
     i.thumbnail(output_size)
     i.save(picture_path)
+    with open(picture_path, mode="rb") as file:
+        data = file.read()
+    obj.put_object(namespace, bucket_name, picture_fn, data)
     return picture_fn
 
 

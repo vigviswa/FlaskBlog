@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <article class="media content-section">
-        <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" alt="" class="rounded-circle article-img">
+        <img src="{{ "https://objectstorage.us-phoenix-1.oraclecloud.com/n/axoiyljpqzhs/b/flask-demo-bucket/o/" + post.author.image_file }}" alt="" class="rounded-circle article-img">
       <div class="media-body">
         <div class="article-metadata">
           <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
