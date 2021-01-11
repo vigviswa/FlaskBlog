@@ -12,6 +12,7 @@ from flaskblog.users.forms import (
 from flaskblog.users.utils import save_picture, send_reset_email
 
 users = Blueprint("users", __name__)
+BUCKET_URL = "https://objectstorage.us-phoenix-1.oraclecloud.com/n/axoiyljpqzhs/b/flask-demo-bucket/o/"
 
 
 @users.route("/register", methods=["GET", "POST"])
@@ -81,7 +82,8 @@ def account_page():
     elif request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
-    image_file = url_for("static", filename="profile_pics/" + current_user.image_file)
+    # image_file = url_for("static", filename="profile_pics/" + current_user.image_file)
+    image_file = BUCKET_URL + current_user.image_file
     return render_template(
         "account.html", title="Account", image_file=image_file, form=form
     )

@@ -24,11 +24,13 @@ h1, h2, h3, h4, h5, h6 {
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
+
 .row{
   margin-top: 50px;
 }
+
 .content-section {
-  background: #ffffff;
+  background: white;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;

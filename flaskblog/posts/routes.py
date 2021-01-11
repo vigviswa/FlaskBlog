@@ -15,6 +15,7 @@ def post_page():
         post = Post(
             title=form.title.data, content=form.content.data, author=current_user
         )
+
         db.session.add(post)
         db.session.commit()
         flash("Your Post has been created!", "success")
