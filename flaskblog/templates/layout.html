@@ -4,23 +4,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://kit.fontawesome.com/33e0f9b053.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axoiyljpqzhs/b/flask-demo-bucket/o/static%2Fmain.css">
     {% if title %}
-        <title>Flask Blog - {{ title }}</title>
+        <title>CloudMazing Blog - {{ title }}</title>
     {% else %}
-        <title>Flask Blog</title>
+        <title>Cloud-Mazing Blog</title>
     {% endif %}
+<link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axoiyljpqzhs/b/flask-demo-bucket/o/favicon.ico"
+    />
 </head>
-<body>
+<body style="margin: 0px">
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Flask Blog</a>
+          <a class="navbar-brand mr-4" href="/">Cloud-Mazing Blog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,7 +50,7 @@
         </div>
       </nav>
     </header>
-    <div class="row" style="background: linear-gradient(yellow, white)">
+    <div class="row" style="background: linear-gradient(yellow, transparent)">
     <main role="main" class="container">
       <div class="row">
 
@@ -63,13 +68,13 @@
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
+            <h3>Cloud-Mazing Facts</h3>
+            <p class='text-muted'>Learn more about how I was made.
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light list-group-item-action">Latest Posts</li>
-                <li class="list-group-item list-group-item-light list-group-item-action">Announcements</li>
-                <li class="list-group-item list-group-item-light list-group-item-action">Calendars</li>
-                <li class="list-group-item list-group-item-light list-group-item-action">etc</li>
+                <li class="list-group-item list-group-item-light list-group-item-action"><a href="https://github.com/vigviswa/FlaskBlog" style="text-decoration: None" target="_blank">Fuel</a></li>
+                <li class="list-group-item list-group-item-light list-group-item-action"><a href="https://domains.google.com/registrar/cloudmazingblog.com/dns" style="text-decoration: None" target="_blank">Domain Service</a></li>
+                <li class="list-group-item list-group-item-light list-group-item-action"><a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axoiyljpqzhs/b/flask-demo-bucket/o/script.sh" style="text-decoration: None" target="_blank">Cloud Init Script</a></li>
+                <li class="list-group-item list-group-item-light list-group-item-action"><a href="https://github.com/vigviswa" style="text-decoration: None" target="_blank">Siblings</a></li>
               </ul>
             </p>
           </div>
@@ -77,7 +82,20 @@
       </div>
     </main>
     </div>
-
+            <div class="col-12 text-center footer">
+              <p>
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                | All you see is Made
+                <i class="icon-heart text-danger" aria-hidden="true"></i> by
+                <a href="http://vigviswa.com/" target="_blank">This Guy</a>
+                  with the Power of
+                <a href="https://cloud.oracle.com/" target="_blank">Oracle</a>
+                  and Lots of <i class="fas fa-mug-hot"></i>
+              </p>
+            </div>
 
 
     <!-- Optional JavaScript -->
