@@ -12,7 +12,7 @@ config = {
     "fingerprint": "63:bf:5a:b6:34:e1:f7:c3:41:d1:f4:a8:0c:b8:73:a4",
     "tenancy": "ocid1.tenancy.oc1..aaaaaaaary5pyagidupdq63x5fyeo4oenxt7tvtjtrpp6sljbmxslz56liza",
     "region": "us-phoenix-1",
-    "key_file": "~/FlaskBlog/keyfiles/vigviswa.pem",
+    "key_file": "~/repos/FlaskBlog/keyfiles/vigviswa.pem",
 }
 
 

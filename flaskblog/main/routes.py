@@ -1,6 +1,6 @@
 from flask import render_template, request, Blueprint
 from flaskblog.models import Post
-
+import socket
 
 main = Blueprint("main", __name__)
 
@@ -16,4 +16,6 @@ def home_page():
 
 @main.route("/about")
 def about_page():
-    return render_template("about.html", title="About")
+    hostname = socket.gethostname()
+    ip = socket.gethostbyname(hostname)
+    return render_template("about.html", title="About", hostname=hostname, ip=ip)
