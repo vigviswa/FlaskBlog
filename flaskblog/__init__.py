@@ -12,7 +12,7 @@ app.config.from_object(Config)
 tunnel = sshtunnel.SSHTunnelForwarder(
     ("129.146.7.173", 22),
     ssh_username="ubuntu",
-    ssh_private_key="~/repos/FlaskBlog/keyfiles/db.key",
+    ssh_private_key="home/ubuntu/FlaskBlog/keyfiles/db.key",
     remote_bind_address=("flaskdb.subnet01072122.vcn01072122.oraclevcn.com", 3306),
 )
 
