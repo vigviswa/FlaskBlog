@@ -10,17 +10,17 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 tunnel = sshtunnel.SSHTunnelForwarder(
-    ("129.146.7.173", 22),
-    ssh_username="ubuntu",
-    ssh_private_key="/home/ubuntu/FlaskBlog/keyfiles/db.key",
-    remote_bind_address=("flaskdb.subnet01072122.vcn01072122.oraclevcn.com", 3306),
+    ("{IP Address of Tunnelling Instance}", 22),
+    ssh_username="{Instance Username}",
+    ssh_private_key="{PATH_TO_KEY_FILE}",
+    remote_bind_address=("{Database Endpoint}", 3306),
 )
 
 tunnel.start()
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "mysql://admin:Gundusaarav@1234@127.0.0.1:{}/flask".format(tunnel.local_bind_port)
+] = "mysql://{username}:{password}@127.0.0.1:{}/flask".format(tunnel.local_bind_port)
 
 db = SQLAlchemy(app)
 brcypt = Bcrypt(app)
